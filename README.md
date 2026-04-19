@@ -79,10 +79,19 @@ Once the `apply` is complete, Terraform will output the `alb_hostname`. Access i
 curl http://<alb_hostname>
 ```
 
+## CI/CD Pipeline (GitHub Actions)
+This project includes a GitHub Actions workflow that automatically builds and pushes the Docker image to DockerHub whenever you push to the `main` branch.
+
+### Setup:
+To make the pipeline work, you must add the following **Secrets** to your GitHub repository (`Settings > Secrets and variables > Actions`):
+1. `DOCKERHUB_USERNAME`: Your DockerHub username.
+2. `DOCKERHUB_TOKEN`: A [DockerHub Access Token](https://docs.docker.com/docker-hub/access-tokens/).
+
 ## Acceptance Criteria Check
-- [x] **Registry**: Image is publicly available on DockerHub.
+- [x] **Registry**: Image is publicly available on DockerHub (via automation).
 - [x] **JSON Response**: Returns `timestamp` and `ip`.
 - [x] **Non-root user**: Dockerfile uses `USER appuser`.
 - [x] **Small Image**: Uses `node:slim` multi-stage build.
 - [x] **Private Subnets**: Compute resources run exclusively in private subnets.
 - [x] **Terraform Only**: Infrastructure is fully automated via `terraform apply`.
+- [x] **Extra Credit**: CI/CD pipeline implemented.
