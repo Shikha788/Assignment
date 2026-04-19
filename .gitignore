@@ -1,0 +1,17 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+!terraform.tfvars.example # Not using for now
+
+# Node
+node_modules/
+npm-debug.log
+
+# Docker
+.dockerignore
+
+# OS
+.DS_Store
+Thumbs.db
